@@ -18,6 +18,7 @@
     issuer="${JWT_ISSUER}"
     jwksUri="${OIDC_JWKS_URL}"
     userNameAttribute="sub"
+    groupNameAttribute="roles"
     sslRef="defaultSSLConfig"
     ignoreApplicationAuthMethod="true"/>
 
