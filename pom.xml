@@ -55,6 +55,10 @@
             <version>10.0.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
+        </dependency>
         <dependency> 
             <groupId>org.eclipse.microprofile</groupId> 
             <artifactId>microprofile</artifactId> 
