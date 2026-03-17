@@ -10,7 +10,7 @@
             ssl="${JDBC_SSL}"  sslfactory="org.postgresql.ssl.DefaultJavaSSLFactory" sslMode="verify-ca"
             user="${env.JDBC_ID}" URL="postgresql://postgres-stocktrader-collab1.postgres.database.azure.com:5432/postgres?sslmode=require" azure.passwordless-enabled="true"/> <!-- It won't use a containerAuthDataRef for some reason, so defining credentials here instead -->
     <!--</dataSource>
-</server> -->
+</server>-->
 <server>
     <variable name="JDBC_SSL" defaultValue="false"/>
     <dataSource id="PortfolioDB" jndiName="jdbc/Portfolio/PortfolioDB" connectionManagerRef="dbConnections" type="javax.sql.ConnectionPoolDataSource" transactional="true" isolationLevel="TRANSACTION_REPEATABLE_READ">
