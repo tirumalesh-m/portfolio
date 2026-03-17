@@ -22,9 +22,14 @@
             </library>
         </jdbcDriver>
         
-        <properties.postgresql serverName="${env.JDBC_HOST}" portNumber="${env.JDBC_PORT}" databaseName="${env.JDBC_DB}"
-            ssl="${JDBC_SSL}" sslfactory="org.postgresql.ssl.DefaultJavaSSLFactory" sslMode="verify-ca"
+        <properties.postgresql 
+            serverName="${env.JDBC_HOST}" 
+            portNumber="${env.JDBC_PORT}" 
+            databaseName="${env.JDBC_DB}"
+            ssl="${JDBC_SSL}" 
+            sslfactory="org.postgresql.ssl.DefaultJavaSSLFactory" 
+            sslMode="verify-ca"
             user="${env.JDBC_ID}" 
-            URL="jdbc:postgresql://postgres-stocktrader-collab1.postgres.database.azure.com:5432/postgres?sslmode=require&amp;authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"/> 
+            authenticationPluginClassName="com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin" /> 
     </dataSource>
 </server>
