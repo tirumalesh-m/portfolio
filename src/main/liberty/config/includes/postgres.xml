@@ -15,14 +15,18 @@
     <variable name="JDBC_SSL" defaultValue="false"/>
     <dataSource id="PortfolioDB" jndiName="jdbc/Portfolio/PortfolioDB" connectionManagerRef="dbConnections" transactional="true" isolationLevel="TRANSACTION_REPEATABLE_READ">
     
-    <jdbcDriver java.sql.Driver="org.postgresql.Driver">
+    <jdbcDriver>
         <library name="Postgres" description="PostgreSQL and Azure Identity JDBC driver jars">
             <fileset dir="/config/prereqs" includes="*.jar"/>
         </library>
     </jdbcDriver>
     
-    <properties 
-        URL="jdbc:postgresql://${env.JDBC_HOST}:${env.JDBC_PORT}/${env.JDBC_DB}?sslmode=require&amp;sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory&amp;authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"
-        user="${env.JDBC_ID}" />
+    <properties.postgresql 
+        serverName="${env.JDBC_HOST}"
+        portNumber="${env.JDBC_PORT}"
+        databaseName="${env.JDBC_DB}"
+        user="${env.JDBC_ID}"
+        sslmode="require"
+        properties.authenticationPluginClassName="com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin" />     
     </dataSource>
 </server>
