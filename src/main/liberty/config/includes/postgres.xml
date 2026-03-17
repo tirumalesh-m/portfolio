@@ -1,4 +1,4 @@
-<server>
+<!--<server>
     <variable name="JDBC_SSL" defaultValue="false"/>
     <dataSource id="PortfolioDB" jndiName="jdbc/Portfolio/PortfolioDB" connectionManagerRef="dbConnections" type="javax.sql.ConnectionPoolDataSource" transactional="true" isolationLevel="TRANSACTION_REPEATABLE_READ">
         <jdbcDriver javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource">
@@ -9,5 +9,22 @@
         <properties.postgresql serverName="${env.JDBC_HOST}" portNumber="${env.JDBC_PORT}" databaseName="${env.JDBC_DB}"
             ssl="${JDBC_SSL}"  sslfactory="org.postgresql.ssl.DefaultJavaSSLFactory" sslMode="verify-ca"
             user="${env.JDBC_ID}" URL="postgresql://postgres-stocktrader-collab1.postgres.database.azure.com:5432/postgres?sslmode=require" azure.passwordless-enabled="true"/> <!-- It won't use a containerAuthDataRef for some reason, so defining credentials here instead -->
+    <!--</dataSource>
+</server> -->
+<server>
+    <variable name="JDBC_SSL" defaultValue="false"/>
+    <dataSource id="PortfolioDB" jndiName="jdbc/Portfolio/PortfolioDB" connectionManagerRef="dbConnections" type="javax.sql.ConnectionPoolDataSource" transactional="true" isolationLevel="TRANSACTION_REPEATABLE_READ">
+        <jdbcDriver javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource">
+            <library name="Postgres" description="PostgreSQL and Azure Identity JDBC driver jars">
+                
+                <fileset dir="/config/prereqs" includes="*.jar"/>
+                
+            </library>
+        </jdbcDriver>
+        
+        <properties.postgresql serverName="${env.JDBC_HOST}" portNumber="${env.JDBC_PORT}" databaseName="${env.JDBC_DB}"
+            ssl="${JDBC_SSL}" sslfactory="org.postgresql.ssl.DefaultJavaSSLFactory" sslMode="verify-ca"
+            user="${env.JDBC_ID}" 
+            URL="jdbc:postgresql://postgres-stocktrader-collab1.postgres.database.azure.com:5432/postgres?sslmode=require&amp;authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"/> 
     </dataSource>
 </server>
