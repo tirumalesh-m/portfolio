@@ -22,14 +22,8 @@
             </library>
         </jdbcDriver>
         
-        <properties.postgresql 
-            serverName="${env.JDBC_HOST}" 
-            portNumber="${env.JDBC_PORT}" 
-            databaseName="${env.JDBC_DB}"
-            ssl="${JDBC_SSL}" 
-            sslfactory="org.postgresql.ssl.DefaultJavaSSLFactory" 
-            sslMode="verify-ca"
-            user="${env.JDBC_ID}" 
-            authenticationPluginClassName="com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin" /> 
+        <properties.postgresql  
+            URL="jdbc:postgresql://${env.JDBC_HOST}:${env.JDBC_PORT}/${env.JDBC_DB}?sslmode=require&amp;authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin" 
+            user="${env.JDBC_ID}" /> 
     </dataSource>
 </server>
