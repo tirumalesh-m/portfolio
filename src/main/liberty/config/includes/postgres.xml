@@ -13,9 +13,9 @@
 </server>-->
 <server>
     <variable name="JDBC_SSL" defaultValue="false"/>
-    <dataSource id="PortfolioDB" jndiName="jdbc/Portfolio/PortfolioDB" connectionManagerRef="dbConnections" transactional="true" isolationLevel="TRANSACTION_REPEATABLE_READ" type="java.sql.Driver">
+    <dataSource id="PortfolioDB" jndiName="jdbc/Portfolio/PortfolioDB" connectionManagerRef="dbConnections" transactional="true" isolationLevel="TRANSACTION_REPEATABLE_READ">
     
-    <jdbcDriver>
+    <jdbcDriver java.sql.Driver="org.postgresql.Driver">
         <library name="Postgres" description="PostgreSQL and Azure Identity JDBC driver jars">
             <fileset dir="/config/prereqs" includes="*.jar"/>
         </library>
