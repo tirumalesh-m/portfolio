@@ -12,7 +12,6 @@
     <!--</dataSource>
 </server>-->
 <server>
-    <variable name="JDBC_SSL" defaultValue="false"/>
     <dataSource id="PortfolioDB" jndiName="jdbc/Portfolio/PortfolioDB" connectionManagerRef="dbConnections" transactional="true" isolationLevel="TRANSACTION_REPEATABLE_READ">
     
     <jdbcDriver>
@@ -22,13 +21,7 @@
     </jdbcDriver>
     
     <properties.postgresql 
-    serverName="${env.JDBC_HOST}" 
-    portNumber="${env.JDBC_PORT}" 
-    databaseName="${env.JDBC_DB}"
-    ssl="${JDBC_SSL}" 
-    sslfactory="org.postgresql.ssl.DefaultJavaSSLFactory" 
-    sslMode="verify-ca"
-    user="${env.JDBC_ID}" 
-    authenticationPluginClassName="com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin" />    
+    url="jdbc:postgresql://postgres-stocktrader-collab1.postgres.database.azure.com:5432/postgres?sslmode=require&amp;authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin&amp;azure.managedIdentityEnabled=true&amp;azure.clientId=1e327d4f-b93c-4899-9c4f-d557bb97de14"
+    user="mi-RITM0250380-653-StockTrader-Entra" />    
     </dataSource>
 </server>
