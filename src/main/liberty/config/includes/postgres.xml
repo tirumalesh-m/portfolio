@@ -8,7 +8,7 @@
     </jdbcDriver>
     
     <properties.postgresql 
-    url="jdbc:postgresql://postgres-stocktrader-collab1.postgres.database.azure.com:5432/postgres?sslmode=require&amp;authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin&amp;azure.managedIdentityEnabled=true&amp;azure.clientId=1e327d4f-b93c-4899-9c4f-d557bb97de14"
+    url="jdbc:postgresql://postgres-stocktrader-collab1.postgres.database.azure.com:5432/postgres?sslmode=require&amp;authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"
     user="mi-RITM0250380-653-StockTrader-Entra" />    
     </dataSource>
 </server>
